@@ -1,0 +1,49 @@
+.err-body {
+  position: relative;
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 1.5rem;
+  overflow: hidden;
+}
+.err-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(2px);
+  animation: errFloat 9s ease-in-out infinite;
+}
+.err-orb.a { width: 320px; height: 320px; left: -90px; top: -80px; background: rgba(37,99,235,.18); }
+.err-orb.b { width: 260px; height: 260px; right: -70px; bottom: -60px; background: rgba(124,58,237,.2); animation-delay: -4s; }
+@keyframes errFloat { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-24px); } }
+
+.err-wrap { position: relative; z-index: 1; width: 100%; max-width: 560px; text-align: center; animation: pageIn .6s ease both; }
+
+.err-brand { display: inline-flex; align-items: center; gap: .6rem; margin-bottom: 1.5rem; color: var(--ink); font-family: 'Poppins', sans-serif; font-weight: 700; font-size: 1.3rem; }
+.err-brand:hover { color: var(--ink); }
+.err-brand .brand-mark { background: var(--grad); color: #fff; transform: none; }
+
+.err-code {
+  font-family: 'Poppins', sans-serif;
+  font-size: clamp(6rem, 24vw, 11rem);
+  font-weight: 700;
+  line-height: 1;
+  background: var(--grad);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  filter: drop-shadow(0 18px 28px rgba(124,58,237,.3));
+  animation: errBob 4s ease-in-out infinite;
+}
+@keyframes errBob { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+
+.err-wrap h1 { margin: .6rem 0 .5rem; font-size: 1.7rem; font-weight: 700; }
+.err-wrap p  { color: var(--muted); margin-bottom: 1.6rem; }
+.err-actions { display: flex; flex-wrap: wrap; justify-content: center; gap: .7rem; }
+
+.err-search { position: relative; max-width: 380px; margin: 1.8rem auto 0; }
+.err-search i { position: absolute; left: 1rem; top: 50%; transform: translateY(-50%); color: var(--muted); }
+.err-search .form-control { padding: .75rem 1rem .75rem 2.7rem; border-radius: 999px; }
+
+@media (prefers-reduced-motion: reduce) {
+  .err-orb, .err-code, .err-wrap { animation: none; }
+}
