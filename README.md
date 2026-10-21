@@ -171,4 +171,4 @@ public/css, public/js      Stylesheets and scripts
 
 ## Author
 
-Developed by **<your name>**.
+Developed by sewmini.
