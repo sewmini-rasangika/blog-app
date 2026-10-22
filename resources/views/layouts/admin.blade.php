@@ -109,6 +109,7 @@
     <a class="side-link {{ $is('myprofile.*') }}" href="{{ route('myprofile.edit') }}"><i class="bi bi-person-circle"></i> My Profile</a>
     <a class="side-link {{ $is('profile.*') }}" href="{{ route('profile.edit') }}"><i class="bi bi-gear"></i> Account settings</a>
     <a class="side-link" href="{{ route('home') }}" target="_blank"><i class="bi bi-box-arrow-up-right"></i> View site</a>
+    <a class="side-link {{ $is('tokens.*') }}" href="{{ route('tokens.index') }}"><i class="bi bi-key"></i> API Tokens</a>
   </nav>
 
   <div class="side-user">
@@ -273,7 +274,7 @@
   document.getElementById('menuBtn').addEventListener('click', () => body.classList.toggle('sidebar-open'));
   document.getElementById('sbBackdrop').addEventListener('click', () => body.classList.remove('sidebar-open'));
 
-  // Toasts
+
   document.querySelectorAll('.app-toast').forEach(el => bootstrap.Toast.getOrCreateInstance(el).show());
 </script>
 @stack('scripts')

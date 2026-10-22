@@ -59,6 +59,10 @@ Route::prefix('{panel}')
         Route::patch('profile', [ProfileController::class, 'update'])->name('profile.update');
         Route::delete('profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
+        Route::get('api-tokens', [\App\Http\Controllers\ApiTokenController::class, 'index'])->name('tokens.index');
+        Route::post('api-tokens', [\App\Http\Controllers\ApiTokenController::class, 'store'])
+            ->middleware('throttle:10,1')->name('tokens.store');
+        Route::delete('api-tokens/{id}', [\App\Http\Controllers\ApiTokenController::class, 'destroy'])->name('tokens.destroy');
       
         Route::middleware('can:posts.approve')->group(function () {
             Route::put('posts/{post}/approve', [PostController::class, 'approve'])->name('posts.approve');
